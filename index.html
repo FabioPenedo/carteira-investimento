@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="modal">
+    <div id="parte1">
+      <input type="number" placeholder="Total Investido" required>
+      <button onclick="replicarEstrutura()">+</button>
+    </div>
+    <div id="parte2">
+      <div id="area-select">
+        <div class="nome-valor">
+          <input type="text" placeholder="Insira o nome do produto" required>
+          <input type="number" placeholder="Insira o valor do produto" required>
+          <select id="meuSelect">
+            <option value="renda fixa">Renda Fixa</option>
+            <option value="renda variável">Renda Variável</option>
+          </select>
+        </div>
+      </div>
+      <button onclick="calcular()">Calcular</button>
+    </div>
+  </div>
+
+  <div id="grafico">
+    <div id="carteira">
+      <h1>Divisão da sua carteria:</h1>
+      <ol>
+        <li>80% Renda Fixa e 20% Renda Variavel</li>
+        <li>50% Pós Fixado | 20% Inflação | 10% Pré Fixado || 20% Fundos Imobiliários</li>
+      </ol>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div id="tipos-carteira">
+      <h2>Carteira Conservadora</h2>
+      <ol>
+        <li>80% Renda Fixa e 20% Renda Variavel<br/>
+        (Exemplo: 50% Pós Fixado | 20% Inflação | 10% Pré Fixado ||<br/> 20% Renda Variável: Fundos
+        Multimercados ou Fundos Imobiliários)
+        </li>
+        <li>90% Renda Fixa e 10% Renda Variavel</li>
+        <li>100% Renda Fixa</li>
+      </ol>
+      <h2>Carteira Moderada</h2>
+      <ol>
+        <li>70% Renda Fixa e 30% Renda Variavel</li>
+        <li>60% Renda Fixa e 40% Renda Variavel</li>
+        <li>50% Renda Fixa e 50% Renda Variavel</li>
+      </ol>
+      <h2>Carteira Agressiva</h2>
+      <ol>
+        <li>40% Renda Fixa e 60% Renda Variavel</li>
+        <li>30% Renda Fixa e 70% Renda Variavel</li>
+      </ol>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

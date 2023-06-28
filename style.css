@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #DCE0E6;
+}
+
+#modal {
+  max-width: 1093px ;
+  width: 100%;
+  height: 740px;
+  background: #606D80;
+  border-radius: 10px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+#parte1 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#parte1 button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 7px;
+  border: 0;
+  background-color: #DCE0E6;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  transition: all .3s ease;
+}
+
+#parte1 button:hover {
+  background-color: #ffffff;
+}
+
+#parte1 input {
+  width: 314px;
+  height: 62px;
+  background-color: #DCE0E6;
+  border-radius: 7px;
+  outline: 0;
+  border: 0;
+  padding: 10px;
+  margin: 20px;
+  margin-bottom: 20px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
+}
+
+#parte2 {
+  flex: 2;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#parte2 button {
+  cursor: pointer;
+  margin: 20px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 0;
+  transition: all .3s ease;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #DCE0E6;
+}
+
+#parte2 button:hover {
+  background-color: #ffffff;
+}
+
+#area-select {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  height: auto;
+}
+
+#area-select select, option{
+  border: 0;
+  border-radius: 7px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.nome-valor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 50px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transition: all .3s ease;
+}
+
+.nome-valor:hover {
+  background-color: #606D80;
+}
+
+.nome-valor input {
+  width: 314px;
+  height: 62px;
+  background-color: #DCE0E6;
+  border-radius: 7px;
+  outline: 0;
+  border: 0;
+  padding: 10px;
+  margin: 20px;
+  margin-bottom: 20px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
+}
+
+.nome-valor select {
+  padding: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  color: #000000;
+}
+
+#grafico {
+  background-color: #606D80;
+  width: 100%;
+  height: inherit;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#carteira {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: auto;
+}
+
+#carteira h1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  color: #DCE0E6;
+}
+
+#carteira ol {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 29px;
+  color: #DCE0E6;
+  margin-bottom: 25px;
+}
+
+#tipos-carteira h2 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: center;
+  color: #DCE0E6;
+  margin-bottom: 10px;
+}
+
+#tipos-carteira ol {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 29px;
+  color: #DCE0E6;
+  margin-bottom: 25px;
+}
+
+
