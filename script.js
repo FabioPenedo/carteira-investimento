@@ -12,7 +12,8 @@ function calcular() {
   let dados = {
     nomes: [],
     valores: [],
-    total: null
+    total: null,
+    opcao: []
   }
   qSa('.nome-valor').forEach(item => {
     let totalInvestido = qS('#parte1 input')
@@ -26,7 +27,7 @@ function calcular() {
     dados.nomes.push(nome)
     dados.valores.push(valor)
     dados.total = total
-    
+    dados.opcao.push(opcaoSelecionada)  
   });
   let labels = dados.nomes.some(item => item !== "")
   let valores = dados.valores.some(item => item !== "")
@@ -49,6 +50,7 @@ function inserirDados(dados) {
   let porcentagens = dados.valores.map(valor => (parseFloat(valor) / total) * 100);
   let backgroundColors = ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff'];
   let ctx = document.getElementById('myChart').getContext('2d');
+
   let data = {
     labels: labels,
     datasets: [{
@@ -56,11 +58,32 @@ function inserirDados(dados) {
       backgroundColor: backgroundColors.slice(0, labels.length)
     }]
   };
-
   new Chart(ctx, {
     type: 'pie',
     data: data
   });
+
+  let contagemPalavras = {}; // Objeto para armazenar a contagem das palavras
+
+  dados.opcao.forEach(item => {
+    if (contagemPalavras[item]) {
+      contagemPalavras[item]++; // Incrementar a contagem se a palavra já existir no objeto
+    } else {
+      contagemPalavras[item] = 1; // Iniciar a contagem com 1 se a palavra não existir no objeto
+    }
+  });
+
+  //console.log(contagemPalavras); // Exibir a contagem das palavras no console
+  let totalPalavras = Object.values(contagemPalavras).reduce((a, b) => a + b, 0); // Somar as quantidades de todas as palavras
+
+  let porcentagensPalavras = {};
+  for (let palavra in contagemPalavras) {
+    let quantidade = contagemPalavras[palavra];
+    let porcentagem = (quantidade / totalPalavras) * 100;
+    porcentagensPalavras[palavra] = porcentagem;
+  }
+
+  console.log(porcentagensPalavras); // Exibir as porcentagens das palavras no console
 }
 
 
