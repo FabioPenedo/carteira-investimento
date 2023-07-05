@@ -83,7 +83,27 @@ function inserirDados(dados) {
     porcentagensPalavras[palavra] = porcentagem;
   }
 
-  console.log(porcentagensPalavras); // Exibir as porcentagens das palavras no console
+
+  if(porcentagensPalavras.rf == 100) {
+    qS('#divisao-modalidade #rf').innerHTML = `${porcentagensPalavras.rf.toFixed(2)} % Renda Fixa`
+    qS('#divisao-modalidade #rv').innerHTML = `0% Renda Variável`
+  } else if(porcentagensPalavras.rv == 100) {
+    qS('#divisao-modalidade #rf').innerHTML = `0% Renda Fixa`
+    qS('#divisao-modalidade #rv').innerHTML = `${porcentagensPalavras.rv.toFixed(2)}% Renda Variável`
+  } else if(porcentagensPalavras.rf || porcentagensPalavras.rv) {
+    qS('#divisao-modalidade #rf').innerHTML = `${porcentagensPalavras.rf.toFixed(2)}% Renda Fixa`
+    qS('#divisao-modalidade #rv').innerHTML = `${porcentagensPalavras.rv.toFixed(2)}% Renda Variável`
+  }
+
+  /*console.log(porcentagensPalavras.rf)
+  for(let i in porcentagensPalavras) {
+    //console.log(porcentagensPalavras[i])
+    //
+  }*/
+
+  //qS('#cateira #divisao-modalidade').innerHTML = `${porcentagensPalavras[rf]}%`
+
+  //console.log(porcentagensPalavras); // Exibir as porcentagens das palavras no console
 }
 
 
