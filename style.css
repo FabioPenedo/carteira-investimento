@@ -9,14 +9,14 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: #DCE0E6;
+  background-color: #f9f9f1;
 }
 
 #modal {
   max-width: 1093px ;
   width: 100%;
   height: 740px;
-  background: #606D80;
+  background: #b9a58d;
   border-radius: 10px;
   margin: 50px;
   display: flex;
@@ -36,7 +36,7 @@ body {
   cursor: pointer;
   border-radius: 7px;
   border: 0;
-  background-color: #DCE0E6;
+  background-color: #f9f9f1;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -45,13 +45,13 @@ body {
 }
 
 #parte1 button:hover {
-  background-color: #ffffff;
+  background-color: #e7e7e0;
 }
 
 #parte1 input {
   width: 314px;
   height: 62px;
-  background-color: #DCE0E6;
+  background-color: #f9f9f1;
   border-radius: 7px;
   outline: 0;
   border: 0;
@@ -89,11 +89,11 @@ body {
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  background-color: #DCE0E6;
+  background-color: #f9f9f1;
 }
 
 #parte2 button:hover {
-  background-color: #ffffff;
+  background-color: #e7e7e0;
 }
 
 #area-select {
@@ -121,16 +121,17 @@ body {
   padding: 20px 50px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   transition: all .3s ease;
+  border-radius: 7px;
 }
 
 .nome-valor:hover {
-  background-color: #606D80;
+  background-color: #f9f9f163;
 }
 
 .nome-valor input {
   width: 314px;
   height: 62px;
-  background-color: #DCE0E6;
+  background-color: #f9f9f1;
   border-radius: 7px;
   outline: 0;
   border: 0;
@@ -158,7 +159,7 @@ body {
 }
 
 #grafico {
-  background-color: #606D80;
+  background-color: #f9f9f1;
   width: 100%;
   height: inherit;
   display: none;
@@ -180,7 +181,7 @@ body {
   font-style: normal;
   font-weight: 500;
   font-size: 35px;
-  color: #DCE0E6;
+  color: #b9a58d;
 }
 
 #carteira ol {
@@ -189,7 +190,7 @@ body {
   font-weight: 500;
   font-size: 18px;
   line-height: 29px;
-  color: #DCE0E6;
+  color: #b9a58d;
   margin-bottom: 25px;
 }
 
@@ -200,7 +201,7 @@ body {
   font-size: 25px;
   line-height: 29px;
   text-align: center;
-  color: #DCE0E6;
+  color: #b9a58d;
   margin-bottom: 10px;
 }
 
@@ -210,7 +211,7 @@ body {
   font-weight: 500;
   font-size: 18px;
   line-height: 29px;
-  color: #DCE0E6;
+  color: #b9a58d;
   margin-bottom: 25px;
 }
 

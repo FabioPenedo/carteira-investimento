@@ -22,12 +22,24 @@
           <input type="text" placeholder="Insira o nome do produto" required>
           <input type="number" placeholder="Insira o valor do produto" required>
           <select id="meuSelect">
-            <option value="rf">Renda Fixa</option>
-            <option value="rv">Renda Variável</option>
+            <option value="selic">Selic</option>
+            <option value="ipca">Inflação</option>
+            <option value="pre">Pre-fixado</option>
+            <option value="cdbpre">CDB prefixado</option>
+            <option value="cdbpos">CDB pós-fixado</option>
+            <option value="cdbhib">CDB híbrido</option>
+            <option value="lcpre">LCI/LCA pre-fixado</option>
+            <option value="lcpos">LCI/LCA pós-fixado</option>
+            <option value="lchib">LCI/LCA híbrido</option>
+            <option value="frf">Fundos de Renda Fixa</option>
+            <option value="frv">Fundos de Renda Variável</option>
+            <option value="fiis">Fundos Imobiliários</option>
+            <option value="acoes">Ações</option>
+
           </select>
         </div>
       </div>
-      <button onclick="calcular()">Calcular</button>
+      <button onclick="pegarDados()">Calcular</button>
     </div>
   </div>
 
@@ -36,7 +48,8 @@
       <h1>Divisão da sua carteria:</h1>
       <ol>
         <li id="divisao-modalidade"><span id="rf"></span> <span id="rv"></span></li>
-        <li id="divisao-categorias">50% Pós Fixado | 20% Inflação | 10% Pré Fixado || 20% Fundos Imobiliários</li>
+        <li id="divisao-categorias"><span id="posfixado"></span> <span id="inflação"></span> 
+          <span id="prefixado"></span><span id="fiis"></span><span id="ações"></span><span id="fundos"></span></li>
       </ol>
       <canvas id="myChart"></canvas>
     </div>

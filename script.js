@@ -8,7 +8,7 @@ function replicarEstrutura() {
   areaSelect.appendChild(clone)
 }
 
-function calcular() {
+function pegarDados() {
   let dados = {
     nomes: [],
     valores: [],
@@ -63,17 +63,56 @@ function inserirDados(dados) {
     data: data
   });
 
-  let contagemPalavras = {}; // Objeto para armazenar a contagem das palavras
+  let contagemPalavras = {
+    posfixado: null,
+    inflação: null,
+    prefixado: null,
+    fiis: null,
+    ações: null,
+    fundos: null
+  
+  }; // Objeto para armazenar a contagem das palavras
 
   dados.opcao.forEach(item => {
-    if (contagemPalavras[item]) {
-      contagemPalavras[item]++; // Incrementar a contagem se a palavra já existir no objeto
-    } else {
-      contagemPalavras[item] = 1; // Iniciar a contagem com 1 se a palavra não existir no objeto
+    if(item == "selic" || item == "cdbpos" || item == "lcpos") {
+      if(contagemPalavras.posfixado){
+        contagemPalavras.posfixado++
+      } else {
+        contagemPalavras.posfixado = 1
+      }
+    } else if(item == "ipca" || item == "cdbhib" || item == "lchib") {
+        if(contagemPalavras.inflação){
+          contagemPalavras.inflação++
+        } else {
+          contagemPalavras.inflação = 1
+        }
+    } else if(item == "pre" || item == "cdbpre" || item == "lcpre") {
+        if(contagemPalavras.prefixado){
+          contagemPalavras.prefixado++
+        } else {
+          contagemPalavras.prefixado = 1
+        }
+    } else if(item == "fiis") {
+        if(contagemPalavras.fiis){
+          contagemPalavras.fiis++
+        } else {
+          contagemPalavras.fiis = 1
+        }
+    } else if(item == "acoes") {
+        if(contagemPalavras.ações){
+          contagemPalavras.ações++
+        } else {
+          contagemPalavras.ações = 1
+        }
+    } else if(item == "frf" || item == "frv") {
+        if(contagemPalavras.ações){
+          contagemPalavras.ações++
+        } else {
+          contagemPalavras.ações = 1
+        }
     }
   });
 
-  //console.log(contagemPalavras); // Exibir a contagem das palavras no console
   let totalPalavras = Object.values(contagemPalavras).reduce((a, b) => a + b, 0); // Somar as quantidades de todas as palavras
 
   let porcentagensPalavras = {};
@@ -83,18 +122,13 @@ function inserirDados(dados) {
     porcentagensPalavras[palavra] = porcentagem;
   }
 
-
-  if(porcentagensPalavras.rf == 100) {
-    qS('#divisao-modalidade #rf').innerHTML = `${porcentagensPalavras.rf}% Renda Fixa`
-    qS('#divisao-modalidade #rv').innerHTML = `0% Renda Variável`
-  } else if(porcentagensPalavras.rv == 100) {
-    qS('#divisao-modalidade #rf').innerHTML = `0% Renda Fixa`
-    qS('#divisao-modalidade #rv').innerHTML = `${porcentagensPalavras.rv}% Renda Variável`
-  } else if(porcentagensPalavras.rf || porcentagensPalavras.rv) {
-    qS('#divisao-modalidade #rf').innerHTML = `${porcentagensPalavras.rf.toFixed(2)}% Renda Fixa`
-    qS('#divisao-modalidade #rv').innerHTML = `${porcentagensPalavras.rv.toFixed(2)}% Renda Variável`
+  for (let palavra in porcentagensPalavras) {
+    if (porcentagensPalavras[palavra]) {
+      let porcentagem = porcentagensPalavras[palavra];
+      let elemento = qS(`#divisao-categorias #${palavra}`);
+      elemento.textContent = `${porcentagem.toFixed(2)}% ${palavra.charAt(0).toUpperCase() + palavra.slice(1)}`;
+    }
   }
-
 }
 
 
