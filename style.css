@@ -70,7 +70,6 @@ body {
 
 #parte2 {
   flex: 2;
-  overflow: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,6 +101,9 @@ body {
   gap: 20px;
   padding: 20px;
   height: auto;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 #area-select select, option{
@@ -161,10 +163,11 @@ body {
 #grafico {
   background-color: #f9f9f1;
   width: 100%;
-  height: inherit;
+  height: auto;
   display: none;
   justify-content: space-evenly;
   align-items: center;
+  min-height: 200px;
 }
 
 #carteira {
@@ -172,8 +175,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: auto;
+  margin: 30px;
 }
 
 #carteira h1 {
@@ -192,6 +197,10 @@ body {
   line-height: 29px;
   color: #b9a58d;
   margin-bottom: 25px;
+}
+
+#tipos-carteira {
+  margin: 10px;
 }
 
 #tipos-carteira h2 {
@@ -213,6 +222,40 @@ body {
   line-height: 29px;
   color: #b9a58d;
   margin-bottom: 25px;
+}
+
+@media(max-width: 768px) {
+  body {
+    height: 100%;
+  }
+
+  #grafico {
+    flex-direction: column;
+  }
+
+  #modal #area-select {
+    grid-template-columns: repeat(1, 1fr)
+  }
+}
+
+@media(max-width: 425px) {
+  .nome-valor {
+    padding: 20px;
+  }
+
+  .nome-valor input {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  #grafico #carteira {
+    width: 400px;
+  }
+
+  #grafico #tipos-carteira {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 
