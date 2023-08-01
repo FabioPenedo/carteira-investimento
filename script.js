@@ -113,6 +113,55 @@ function inserirDados(dados) {
     }
   });
 
+  let tiposDeInvestimento = {
+    rendafixa: null,
+    rendavariavel: null
+  }
+
+  for(let i in contagemPalavras) {
+    if(contagemPalavras[i] > 0) {
+      if(i == 'posfixado' || i == 'inflação' || i == 'prefixado') {
+        if(tiposDeInvestimento.rendafixa) {
+          tiposDeInvestimento.rendafixa++
+        } else {
+          tiposDeInvestimento.rendafixa = 1
+        }
+      } else if(i == 'fiis' || i == 'ações' || i == 'fundos') {
+        if(tiposDeInvestimento.rendavariavel) {
+          tiposDeInvestimento.rendavariavel++
+        } else {
+          tiposDeInvestimento.rendavariavel = 1
+        }
+      }
+    }
+  }
+
+  
+  let totalPalavrasTiposInvest = Object.values(tiposDeInvestimento).reduce((a, b) => a + b, 0); // Somar as quantidades de todas as palavras
+
+  let porcentPalavrasTiposInvest = {};
+  for (let palavra in tiposDeInvestimento) {
+    let quantidade = tiposDeInvestimento[palavra];
+    let porcentagem = (quantidade / totalPalavrasTiposInvest) * 100;
+    porcentPalavrasTiposInvest[palavra] = porcentagem;
+  }
+
+  for (let palavra in porcentPalavrasTiposInvest) {
+    if(porcentPalavrasTiposInvest[palavra]) {
+      let porcentagem = porcentPalavrasTiposInvest[palavra];
+      if(palavra == 'rendafixa') {
+        qS('#divisao-modalidade #rf').textContent = `${porcentagem.toFixed(2)}% Renda Fixa`
+      } else if (palavra == 'rendavariavel') {
+        qS('#divisao-modalidade #rv').textContent = `${porcentagem.toFixed(2)}% Renda Variável`
+      }
+      
+      //let elemento = qS(`#divisao-categorias #${palavra}`);
+      //elemento.textContent = `${porcentagem.toFixed(2)}% ${palavra.charAt(0).toUpperCase() + palavra.slice(1)}`;
+    }
+  }
+
+
+
   let totalPalavras = Object.values(contagemPalavras).reduce((a, b) => a + b, 0); // Somar as quantidades de todas as palavras
 
   let porcentagensPalavras = {};
@@ -129,6 +178,8 @@ function inserirDados(dados) {
       elemento.textContent = `${porcentagem.toFixed(2)}% ${palavra.charAt(0).toUpperCase() + palavra.slice(1)}`;
     }
   }
+
+  qS('#total-investido').innerHTML = `Total investido de R$${dados.total}`
 }
 
 
